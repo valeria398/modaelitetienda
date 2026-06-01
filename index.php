@@ -9,11 +9,11 @@ $error_login = null;
 
 try {
     $conexion = new mysqli(
-    getenv('MYSQLHOST'),
-    getenv('MYSQLUSER'),
-    getenv('MYSQLPASSWORD'),
-    getenv('MYSQLDATABASE'),
-    (int)getenv('MYSQLPORT')
+    getenv('zephyr.proxy.rlwy.net'),
+    getenv('root'),
+    getenv('MHpkCZakGgiGDjKEBWMysevFYkFaxqjb'),
+    getenv('railway'),
+    (int)getenv('3306')
 );
     
     if ($conexion->connect_error) {
