@@ -135,11 +135,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     />
 
     <title>
-        <?= htmlspecialchars($titulo ?? 'Elite Moda Tienda') ?>
+        <?= htmlspecialchars($titulo ?? 'Elite Moda | Tienda Online de Ropa y Accesorios en Colombia') ?>
     </title>
 
     <meta name="description"
-          content="Elite Moda es una tienda online de ropa, accesorios y moda con compras seguras y envíos rápidos en Colombia.">
+          content="Compra ropa, accesorios y productos de moda online en Elite Moda. Envíos a toda Colombia, pagos seguros y las últimas tendencias.">
 
     <meta name="keywords"
           content="ropa, moda, tienda online, ecommerce, accesorios, Colombia, Elite Moda">
@@ -160,7 +160,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
           content="website">
 
     <meta property="og:url"
-          content="https://modaelitetienda.onrender.com">
+          content="https://modaelitetienda-1cwa.onrender.com">
 
     <meta property="og:site_name"
           content="Elite Moda">
@@ -169,7 +169,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
           content="es_CO">
 
     <link rel="canonical"
-          href="https://modaelitetienda.onrender.com">
+          href="https://modaelitetienda-1cwa.onrender.com">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/variables.css">
