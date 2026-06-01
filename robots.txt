@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://modaelitetienda-1cwa.onrender.com/sitemap.xml
