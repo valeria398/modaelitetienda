@@ -1,0 +1,94 @@
+/* ── HERO (SECCIÓN PRINCIPAL) ───────────────────────────────── */
+
+/* Contenedor principal del hero */
+.hero {
+  background: var(--fondo-hero); /* Fondo (puede ser color o degradado) */
+  color: var(--color-texto); /* Color del texto */
+  padding: 100px 48px; /* Espaciado interno */
+  display: flex; /* Layout en fila */
+  align-items: center; /* Centrado vertical */
+  gap: 64px; /* Espacio entre texto e imágenes */
+  min-height: 480px; /* Altura mínima */
+  position: relative; /* Permite posicionar elementos internos */
+  overflow: hidden; /* Oculta desbordes (útil para efectos) */
+}
+
+/* Contenedor del texto */
+.hero-texto { 
+  flex: 1; /* Ocupa mitad del espacio */
+  position: relative; 
+  z-index: 1; /* Se asegura que esté sobre otros elementos */
+}
+
+/* Etiqueta pequeña (ej: "Nueva colección") */
+.hero-tag {
+  font-size: 0.7rem;
+  letter-spacing: 4px; /* Espaciado elegante */
+  text-transform: uppercase; /* Mayúsculas */
+  color: var(--acento); /* Color principal */
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+/* Título principal */
+.hero-texto h1 {
+  font-family: 'Cormorant Garamond', serif; /* Fuente elegante */
+  font-size: 4rem; /* Tamaño grande */
+  font-weight: 300; /* Delgado */
+  line-height: 1.1; /* Altura de línea */
+  color: var(--color-texto);
+}
+
+/* Parte resaltada del título */
+.hero-texto h1 em { 
+  color: var(--acento); /* Color destacado */
+  font-style: italic; 
+}
+
+/* Descripción debajo del título */
+.hero-texto p {
+  color: var(--color-texto-suave); /* Color más tenue */
+  margin-top: 24px;
+  font-size: 0.95rem;
+  max-width: 400px; /* Limita ancho */
+  line-height: 1.8; /* Mejor legibilidad */
+  letter-spacing: 0.3px;
+}
+
+/* Contenedor de imágenes del hero */
+.hero-imagenes {
+  flex: 1; /* Ocupa la otra mitad */
+  display: grid; /* Grid layout */
+  grid-template-columns: 1fr 1fr; /* 2 columnas */
+  gap: 16px; /* Espacio entre imágenes */
+  max-width: 440px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Caja de cada imagen */
+.hero-img {
+  border-radius: var(--radio-lg); /* Bordes redondeados */
+  overflow: hidden; /* Oculta bordes de la imagen */
+  aspect-ratio: 3/4; /* Proporción vertical elegante */
+  box-shadow: 0 12px 40px var(--sombra-media); /* Sombra */
+}
+
+/* Imagen dentro del contenedor */
+.hero-img img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; /* Ajuste sin deformar */
+  display: block; 
+  transition: transform 0.6s ease; /* Animación suave */
+}
+
+/* Efecto hover (zoom leve) */
+.hero-img:hover img { 
+  transform: scale(1.04); 
+}
+
+/* Ajuste especial para la primera imagen */
+.hero-img:first-child { 
+  margin-top: 48px; /* Desplazamiento hacia abajo */
+}

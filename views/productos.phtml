@@ -1,0 +1,71 @@
+<!-- ===================== PRODUCTOS ===================== -->
+
+<main id="productos" class="contenedor-productos">
+
+    <h2 class="titulo-seccion" id="titulo-productos">
+        <?= htmlspecialchars($titulo_productos ?? 'Toda la Coleccion') ?>
+    </h2>
+
+    <?php if (!isset($_SESSION['usuario'])): ?>
+        <div class="aviso-login" id="aviso-login">
+            Inicia sesion desde la barra superior para agregar piezas al carrito.
+        </div>
+    <?php endif; ?>
+
+    <div class="grilla" id="grilla-productos">
+
+        <?php if (!empty($productos)): ?>
+
+            <?php foreach ($productos as $producto): ?>
+
+                <div class="tarjeta">
+
+                    <div class="tarjeta-imagen">
+                        <span class="etiqueta-nuevo">Nuevo</span>
+
+                        <img
+                            src="<?= htmlspecialchars($producto['imagen']) ?>"
+                            alt="<?= htmlspecialchars($producto['nombre']) ?>"
+                            loading="lazy"
+                        >
+
+                        <button class="btn-ver-detalles">
+                            Ver Detalles
+                        </button>
+                    </div>
+
+                    <div class="tarjeta-info">
+
+                        <div class="tarjeta-cat">
+                            <?= htmlspecialchars($producto['categoria']) ?>
+                        </div>
+
+                        <div class="tarjeta-nombre">
+                            <?= htmlspecialchars($producto['nombre']) ?>
+                        </div>
+
+                        <div class="tarjeta-precio">
+                            $<?= number_format($producto['precio'], 0, ',', '.') ?>
+                        </div>
+
+                        <button class="btn-agregar">
+                            Agregar al carrito
+                        </button>
+
+                    </div>
+
+                </div>
+
+            <?php endforeach; ?>
+
+        <?php else: ?>
+
+            <div class="sin-resultados">
+                No se encontraron piezas
+            </div>
+
+        <?php endif; ?>
+
+    </div>
+
+</main>

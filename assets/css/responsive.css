@@ -1,0 +1,269 @@
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+
+/* Pantallas menores a 900px (tablets grandes) */
+@media (max-width: 900px) {
+
+  .navbar { 
+    padding: 0 24px;
+  }
+
+  .hero { 
+    padding: 60px 24px;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .hero-texto h1 { 
+    font-size: 2.8rem;
+  }
+
+  .hero-imagenes { 
+    max-width: 100%;
+  }
+
+  .contenedor-productos { 
+    padding: 40px 24px;
+  }
+}
+
+
+/* Pantallas menores a 768px (tablets pequeñas) */
+@media (max-width: 768px) {
+
+  .nav-categorias {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .nav-categorias::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-cat {
+    white-space: nowrap;
+    font-size: 0.65rem;
+    padding: 6px 12px;
+  }
+
+  .grilla { 
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px; 
+  }
+
+  .login-modal {
+    padding: 40px 28px;
+  }
+}
+
+
+/* Pantallas menores a 600px (MÓVILES) */
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 0 12px;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-left: 0;
+  }
+
+  .btn-login-toggle {
+    font-size: 11px;
+    padding: 6px 10px;
+    margin-left: auto; 
+  }
+
+  /* HERO */
+
+  .hero-content {
+    padding: 0 10px;
+  }
+
+  .hero {
+  height: auto;
+  min-height: 90vh;
+  padding: 60px 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 3rem);
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-hero {
+    font-size: 12px;
+    padding: 10px 20px;
+    letter-spacing: 2px;
+  }
+
+  /* BOTÓN MÚSICA */
+  #music-toggle-btn {
+    font-size: 12px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  /* MODAL */
+  .modal-contenido { 
+    grid-template-columns: 1fr;
+  }
+
+  .modal-imagen img { 
+    border-radius: var(--radio-lg) var(--radio-lg) 0 0; 
+    height: 240px;
+  }
+
+  .modal-info {
+    padding: 28px 24px;
+  }
+}
+
+
+/* Pantallas muy pequeñas (extra móviles) */
+@media (max-width: 480px) {
+
+  .nav-logo {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .btn-login-toggle {
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+
+  .nav-cat {
+    font-size: 0.6rem;
+    padding: 5px 10px;
+  }
+
+}
+
+/* ── HERO VIDEO ─────────────────────────────────────────────── */
+
+.hero-video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+
+/* HERO GENERAL */
+.hero {
+  position: relative;
+  background: url('../img/hero.jpg') center/cover no-repeat;
+  height: 90vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 5.2rem);
+  line-height: 0.92;
+  margin-bottom: 1.5rem;
+
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: 2px;
+
+  word-break: break-word; 
+}
+
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+
+/* BOTÓN MÚSICA */
+#music-toggle-btn {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+
+    z-index: 10;
+
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+/* BOTÓN HERO */
+.btn-hero {
+  background: #111;
+  color: #fff;
+
+  border: none;
+
+  padding: 14px 30px;
+  border-radius: 50px;
+
+  letter-spacing: 3px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-hero:hover {
+  background: #333;
+}

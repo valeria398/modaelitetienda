@@ -1,0 +1,194 @@
+/* ── PRODUCTOS ───────────────────────────────────────────────── */
+
+/* Contenedor general de la sección de productos */
+.contenedor-productos { 
+  padding: 60px 48px; /* Espaciado interno */
+}
+
+/* Título de la sección */
+.titulo-seccion {
+  font-family: 'Cormorant Garamond', serif; /* Tipografía elegante */
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 36px; /* Separación con la grilla */
+  letter-spacing: 2px;
+  color: var(--color-texto);
+}
+
+/* Grilla de productos */
+.grilla {
+  display: grid; /* Layout en grid */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+  /* Crea columnas automáticas con mínimo 260px */
+  gap: 32px; /* Espacio entre tarjetas */
+}
+
+/* Tarjeta de producto */
+.tarjeta {
+  border: 1px solid var(--gris-claro); /* Borde */
+  border-radius: var(--radio-lg); /* Bordes redondeados */
+  overflow: hidden; /* Evita desbordes */
+  transition: transform var(--trans), box-shadow var(--trans); /* Animación */
+  background: var(--fondo-tarjeta);
+}
+
+/* Efecto hover de la tarjeta */
+.tarjeta:hover { 
+  transform: translateY(-6px); /* Se eleva */
+  box-shadow: 0 20px 48px var(--sombra-media); /* Sombra elegante */
+}
+
+/* Contenedor de la imagen */
+.tarjeta-imagen {
+  position: relative; /* Para posicionar elementos dentro */
+  aspect-ratio: 3/4; /* Proporción vertical */
+  overflow: hidden;
+  background: var(--gris-claro);
+}
+
+/* Imagen del producto */
+.tarjeta-imagen img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+  transition: transform 0.5s ease; 
+}
+
+/* Zoom al hacer hover */
+.tarjeta:hover .tarjeta-imagen img { 
+  transform: scale(1.06); 
+}
+
+
+/* Etiqueta (Nuevo / Oferta) */
+.etiqueta-nuevo {
+  position: absolute;
+  top: 14px; 
+  left: 14px;
+  background: var(--negro);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 50px; 
+}
+
+/* Variante para oferta */
+.etiqueta-oferta { 
+  background: var(--acento); 
+}
+
+
+/* Botón "Ver detalles" (aparece en hover) */
+.btn-ver-detalles {
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+
+  background: rgba(26, 26, 26, 0.92); /* Fondo oscuro */
+  color: #fff;
+
+  border: none;
+  padding: 12px;
+
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  opacity: 0; /* Oculto */
+  transform: translateY(100%); /* Fuera de vista */
+  transition: all 0.3s ease;
+}
+
+/* Aparece al hacer hover */
+.tarjeta:hover .btn-ver-detalles { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+
+/* Contenedor de la información */
+.tarjeta-info { 
+  padding: 20px; 
+}
+
+/* Categoría del producto */
+.tarjeta-cat {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-texto-suave);
+  margin-bottom: 6px;
+}
+
+/* Nombre del producto */
+.tarjeta-nombre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  color: var(--color-texto);
+}
+
+/* Precio */
+.tarjeta-precio { 
+  font-size: 0.95rem; 
+  color: var(--color-precio); 
+  font-weight: 500; 
+  letter-spacing: 0.5px; 
+}
+
+
+/* Botón agregar al carrito */
+/* ── BOTÓN AGREGAR (ESTILO EXACTO INSPECTOR 🔥) ── */
+.btn-agregar {
+  width: 100%;
+  margin-top: 14px;
+  padding: 16px;
+
+  background: #1A1A1A; /* 🔥 EXACTO */
+  color: #FFFFFF;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  border-radius: 8px;
+
+  transition: all 0.3s ease;
+}
+
+/* 🔥 Hover: ligera transparencia */
+.btn-agregar:hover {
+  background: rgba(26, 26, 26, 0.8);
+}
+
+/* Estado deshabilitado */
+.btn-agregar:disabled {
+  background: #ccc;
+  color: #777;
+  cursor: not-allowed;
+}
+
+/* Mensaje cuando no hay productos */
+.sin-resultados {
+  grid-column: 1/-1; /* Ocupa toda la fila */
+  text-align: center;
+  padding: 80px;
+  color: var(--color-texto-suave);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+}

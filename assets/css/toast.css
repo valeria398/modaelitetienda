@@ -1,0 +1,36 @@
+/* ── TOAST ───────────────────────────────────────────────────── */
+
+/* Contenedor principal del toast */
+.toast {
+  position: fixed; /* Fijo en pantalla */
+  bottom: 32px; /* Separación desde la parte inferior */
+  left: 50%; /* Centrado horizontal */
+
+  transform: translateX(-50%) translateY(100px); 
+  /* Inicialmente oculto (fuera de vista hacia abajo) */
+
+  background: var(--negro); /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+
+  padding: 14px 28px; /* Espaciado interno */
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+
+  border-radius: var(--radio); /* Bordes redondeados */
+
+  z-index: 300; /* Encima de otros elementos */
+
+  transition: transform 0.3s ease; /* Animación suave */
+
+  white-space: nowrap; 
+  /* Evita que el texto haga salto de línea */
+
+  box-shadow: 0 8px 24px var(--sombra-media); 
+  /* Sombra para efecto flotante */
+}
+
+/* Estado visible del toast */
+.toast.visible { 
+  transform: translateX(-50%) translateY(0); 
+  /* Se desliza hacia arriba (aparece en pantalla) */
+}

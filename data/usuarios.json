@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1780338880,
+        "nombre": "Fallback Test",
+        "email": "fallback_test@example.com",
+        "password": "test1234",
+        "avatar": "FT"
+    },
+    {
+        "id": 1780338938,
+        "nombre": "vale",
+        "email": "vale@email.com",
+        "password": "12345678",
+        "avatar": "VV"
+    },
+    {
+        "id": 1780340484,
+        "nombre": "ma",
+        "email": "ma@email.com",
+        "password": "12345678",
+        "avatar": "MM"
+    }
+]

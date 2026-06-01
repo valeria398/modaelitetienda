@@ -1,0 +1,312 @@
+/* ── MODAL PRODUCTO ──────────────────────────────────────────── */
+
+/* Fondo oscuro detrás del modal */
+.modal-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  inset: 0; /* Ocupa toda la pantalla */
+  background: rgba(26, 26, 26, 0.55); /* Oscurece el fondo */
+  backdrop-filter: blur(4px); /* Desenfoque */
+  z-index: 2000; /* Debajo del modal */
+}
+
+/* Estado visible del overlay */
+.modal-overlay.visible { 
+  display: block; 
+}
+
+
+/* Contenedor principal del modal */
+.modal {
+  display: none; /* Oculto inicialmente */
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrado perfecto */
+
+  z-index: 2001; /* Encima del overlay */
+
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+
+  width: 90%; 
+  max-width: 820px; /* Tamaño máximo */
+
+  max-height: 90vh; /* No sobrepasa la pantalla */
+  overflow-y: auto; /* Scroll si es necesario */
+
+  box-shadow: 0 24px 64px var(--sombra-fuerte); /* Sombra elegante */
+}
+
+/* Estado visible del modal */
+.modal.visible { 
+  display: block; 
+}
+
+
+/* Botón cerrar (X) */
+.modal-cerrar {
+  position: absolute;
+  top: 16px; 
+  right: 20px;
+
+  background: none; 
+  border: none;
+
+  font-size: 1.1rem;
+
+  color: var(--gris-suave);
+
+  cursor: pointer;
+
+  z-index: 1;
+
+  transition: color var(--trans);
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+}
+
+/* Hover botón cerrar */
+.modal-cerrar:hover { 
+  color: var(--color-texto); 
+  background: var(--gris-claro);
+}
+
+
+/* Contenido interno del modal */
+.modal-contenido { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; /* Dos columnas: imagen + info */
+}
+
+
+/* Imagen del producto */
+.modal-imagen img {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; /* Ajuste sin deformar */
+
+  border-radius: var(--radio-lg) 0 0 var(--radio-lg); 
+  /* Bordes redondeados solo a la izquierda */
+
+  display: block;
+}
+
+
+/* Contenedor de información */
+.modal-info { 
+  padding: 40px 36px; 
+  display: flex; 
+  flex-direction: column; /* Elementos en columna */
+  gap: 16px; /* Espacio entre elementos */
+}
+
+
+/* Categoría */
+.modal-categoria { 
+  font-size: 0.72rem; 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  color: var(--acento); 
+}
+
+/* Nombre del producto */
+.modal-nombre { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 1.8rem; 
+  font-weight: 400; 
+  color: var(--color-texto); 
+  line-height: 1.2; 
+}
+
+/* Descripción */
+.modal-descripcion { 
+  font-size: 0.9rem; 
+  color: var(--color-texto-suave); 
+  line-height: 1.7; 
+}
+
+/* Precio */
+.modal-precio { 
+  font-size: 1.5rem; 
+  font-weight: 500; 
+  color: var(--color-precio); 
+}
+
+
+/* Secciones (talla, color, cantidad) */
+.modal-seccion { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+}
+
+/* Etiqueta de sección */
+.modal-label { 
+  font-size: 0.82rem; 
+  letter-spacing: 1px; 
+  color: var(--color-texto); 
+  font-weight: 500; 
+}
+
+
+/* Contenedor de tallas */
+.modal-tallas { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
+}
+
+/* Botón de talla */
+.talla-btn {
+  width: 40px; 
+  height: 40px;
+
+  border: 1px solid var(--gris-claro);
+  background: none;
+
+  border-radius: var(--radio);
+
+  font-size: 0.82rem;
+
+  cursor: pointer;
+
+  transition: all var(--trans);
+
+  font-family: 'Jost', sans-serif;
+  color: var(--color-texto);
+}
+
+/* Hover talla */
+.talla-btn:hover { 
+  border-color: var(--acento); 
+  color: var(--acento); 
+}
+
+/* Talla seleccionada */
+.talla-btn.seleccionada { 
+  background: var(--negro); 
+  border-color: var(--negro); 
+  color: #fff; 
+}
+
+
+/* Contenedor de colores */
+.modal-colores { 
+  display: flex; 
+  gap: 10px; 
+}
+
+/* Botón de color */
+.color-btn {
+  width: 32px; 
+  height: 32px;
+
+  border-radius: 50%; /* Circular */
+
+  border: 2px solid transparent;
+
+  cursor: pointer;
+
+  transition: border-color var(--trans);
+
+  box-shadow: 0 2px 8px var(--sombra-suave);
+}
+
+/* Color seleccionado */
+.color-btn.seleccionado { 
+  border-color: var(--negro); 
+}
+
+
+/* Selector de cantidad */
+.modal-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  border: 1px solid var(--gris-claro);
+  border-radius: var(--radio);
+
+  width: fit-content;
+
+  overflow: hidden;
+}
+
+/* Botones + y - */
+.modal-cantidad button {
+  width: 40px; 
+  height: 40px;
+
+  background: none; 
+  border: none;
+
+  font-size: 1.1rem;
+
+  cursor: pointer;
+
+  color: var(--color-texto);
+
+  transition: background var(--trans);
+}
+
+/* Hover botones cantidad */
+.modal-cantidad button:hover { 
+  background: var(--gris-claro); 
+}
+
+/* Número de cantidad */
+.modal-cantidad span {
+  width: 44px;
+  text-align: center;
+  font-size: 0.95rem;
+
+  border-left: 1px solid var(--gris-claro);
+  border-right: 1px solid var(--gris-claro);
+
+  line-height: 40px;
+}
+
+
+/* Botón agregar al carrito */
+.btn-modal-agregar {
+  background: var(--negro);
+  color: #fff;
+
+  border: none;
+
+  padding: 16px;
+
+  border-radius: var(--radio);
+
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background var(--trans);
+
+  margin-top: auto; /* Lo empuja al final */
+}
+
+/* Hover (solo si está activo) */
+.btn-modal-agregar:hover:not(:disabled) { 
+  background: var(--gris-oscuro); 
+}
+
+/* Estado deshabilitado */
+.btn-modal-agregar:disabled { 
+  background: var(--gris-claro); 
+  color: var(--gris-suave); 
+  cursor: not-allowed; 
+}

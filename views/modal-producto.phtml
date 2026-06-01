@@ -1,0 +1,129 @@
+<!-- ===================== MODAL PRODUCTO ===================== -->
+
+<div 
+    class="modal-overlay" 
+    id="modal-overlay"
+    onclick="cerrarModal()"
+></div>
+
+<div class="modal" id="modal-producto">
+
+    <!-- BOTON CERRAR -->
+    <button 
+        class="modal-cerrar"
+        onclick="cerrarModal()"
+    >
+        &#10005;
+    </button>
+
+
+    <div class="modal-contenido">
+
+        <!-- IMAGEN -->
+        <div class="modal-imagen">
+
+            <img
+                id="modal-img"
+                src="<?= htmlspecialchars($producto_modal['imagen'] ?? '') ?>"
+                alt="<?= htmlspecialchars($producto_modal['nombre'] ?? '') ?>"
+            >
+
+        </div>
+
+
+        <!-- INFORMACION -->
+        <div class="modal-info">
+
+            <p class="modal-categoria" id="modal-categoria">
+                <?= htmlspecialchars($producto_modal['categoria'] ?? '') ?>
+            </p>
+
+            <h2 class="modal-nombre" id="modal-nombre">
+                <?= htmlspecialchars($producto_modal['nombre'] ?? '') ?>
+            </h2>
+
+            <p class="modal-descripcion" id="modal-descripcion">
+                <?= htmlspecialchars($producto_modal['descripcion'] ?? '') ?>
+            </p>
+
+            <p class="modal-precio" id="modal-precio">
+                $<?= number_format($producto_modal['precio'] ?? 0, 0, ',', '.') ?>
+            </p>
+
+
+            <!-- TALLAS -->
+            <div class="modal-seccion" id="seccion-tallas">
+
+                <p class="modal-label">Talla:</p>
+
+                <div class="modal-tallas" id="modal-tallas">
+
+                </div>
+
+            </div>
+
+
+            <!-- COLORES -->
+            <div class="modal-seccion">
+
+                <p class="modal-label">Color:</p>
+
+                <div class="modal-colores" id="modal-colores">
+
+                    <?php if (!empty($producto_modal['colores'])): ?>
+
+                        <?php foreach ($producto_modal['colores'] as $color): ?>
+
+                            <button
+                                class="btn-color"
+                                title="<?= htmlspecialchars($color) ?>"
+                                style="background: <?= htmlspecialchars($color) ?>;"
+                            ></button>
+
+                        <?php endforeach; ?>
+
+                    <?php endif; ?>
+
+                </div>
+
+            </div>
+
+
+            <!-- CANTIDAD -->
+            <div class="modal-seccion">
+
+                <p class="modal-label">Cantidad:</p>
+
+                <div class="modal-cantidad">
+
+                    <button onclick="cambiarCantidad(-1)">
+                        −
+                    </button>
+
+                    <span id="modal-cantidad-valor">
+                        <?= $cantidad ?? 1 ?>
+                    </span>
+
+                    <button onclick="cambiarCantidad(1)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTON -->
+            <button
+                class="btn-modal-agregar"
+                id="btn-modal-agregar"
+                onclick="agregarDesdeModal()"
+            >
+                Agregar al Carrito
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

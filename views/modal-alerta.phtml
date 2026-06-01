@@ -1,0 +1,54 @@
+<!-- ===================== MODAL ALERTA ===================== -->
+
+<div 
+    class="alerta-overlay" 
+    id="alerta-overlay"
+    onclick="uiCerrarAlerta()"
+></div>
+
+<div class="alerta-modal" id="alerta-modal">
+
+    <!-- BOTON CERRAR -->
+    <button
+        class="alerta-cerrar"
+        onclick="uiCerrarAlerta()"
+    >
+        &#10005;
+    </button>
+
+
+    <!-- HEADER -->
+    <div class="alerta-modal-header">
+
+        <!-- ICONO -->
+        <div class="alerta-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+
+        <!-- LOGO -->
+        <div class="alerta-modal-logo">
+            <?= htmlspecialchars($nombre_empresa ?? 'Elite Moda') ?>
+        </div>
+
+        <!-- MENSAJE -->
+        <p class="alerta-mensaje" id="alerta-mensaje">
+
+            <?= htmlspecialchars(
+                $mensaje_alerta
+                ?? 'Inicia sesion desde la barra superior para agregar piezas al carrito.'
+            ) ?>
+
+        </p>
+
+    </div>
+
+
+    <!-- BOTON -->
+    <button
+        class="btn-alerta-ok"
+        onclick="uiCerrarAlerta()"
+    >
+        Entendido
+    </button>
+
+</div>

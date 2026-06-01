@@ -1,0 +1,49 @@
+/* RESET */
+
+/* Aplica a todos los elementos y pseudo-elementos */
+*, *::before, *::after {
+  box-sizing: border-box; /* Incluye padding y borde dentro del tamaño */
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina padding por defecto */
+}
+
+/* Estilos base del body */
+body {
+  font-family: 'Jost', sans-serif; /* Fuente principal */
+  background: var(--fondo-body); /* Color o fondo general */
+  color: var(--color-texto); /* Color del texto */
+  min-height: 100vh; /* Altura mínima de toda la pantalla */
+  line-height: 1.6; /* Espaciado entre líneas */
+}
+
+
+/* ── TOAST (NOTIFICACIONES) ───────────────────────────────── */
+
+/* Contenedor del toast */
+.toast {
+  position: fixed; /* Fijo en pantalla */
+  bottom: 32px; /* Separación desde abajo */
+  left: 50%; /* Centrado horizontal */
+  
+  transform: translateX(-50%) translateY(100px); 
+  /* Inicialmente oculto hacia abajo */
+
+  background: var(--negro); /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+
+  padding: 14px 28px;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+
+  border-radius: var(--radio); /* Bordes redondeados */
+
+  z-index: 300; /* Encima de todo */
+
+  transition: transform 0.3s ease; /* Animación de entrada */
+}
+
+/* Estado visible del toast */
+.toast.visible {
+  transform: translateX(-50%) translateY(0); 
+  /* Se desliza hacia arriba (aparece) */
+}

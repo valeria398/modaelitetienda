@@ -1,0 +1,142 @@
+<!-- ===================== CARRITO ===================== -->
+
+<div 
+    class="overlay"
+    id="overlay"
+    onclick="cerrarCarrito()"
+></div>
+
+<aside class="carrito-panel" id="carrito-panel">
+
+    <!-- HEADER -->
+    <div class="carrito-header">
+
+        <h3>
+            <?= htmlspecialchars($titulo_carrito ?? 'Tu Seleccion') ?>
+        </h3>
+
+        <button
+            class="btn-cerrar"
+            onclick="cerrarCarrito()"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <!-- ITEMS -->
+    <div class="carrito-items" id="carrito-items">
+
+        <?php if (!empty($_SESSION['carrito'])): ?>
+
+            <?php foreach ($_SESSION['carrito'] as $item): ?>
+
+                <div class="item-carrito">
+
+                    <!-- IMAGEN -->
+                    <div class="item-thumb">
+
+                        <img
+                            src="<?= htmlspecialchars($item['imagen']) ?>"
+                            alt="<?= htmlspecialchars($item['nombre']) ?>"
+                        >
+
+                    </div>
+
+
+                    <!-- DATOS -->
+                    <div class="item-datos">
+
+                        <div class="nombre">
+                            <?= htmlspecialchars($item['nombre']) ?>
+                        </div>
+
+                        <div class="precio">
+                            $<?= number_format($item['precio'], 0, ',', '.') ?>
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTROLES -->
+                    <div class="item-controles">
+
+                        <button
+                            class="btn-cant btn-quitar"
+                            onclick="quitarCantidad(<?= $item['id'] ?>)"
+                        >
+                            −
+                        </button>
+
+                        <span class="item-cantidad">
+                            <?= $item['cantidad'] ?>
+                        </span>
+
+                        <button
+                            class="btn-cant btn-sumar"
+                            onclick="sumarCantidad(<?= $item['id'] ?>)"
+                        >
+                            +
+                        </button>
+
+                        <button
+                            class="btn-eliminar"
+                            onclick="eliminarItem(<?= $item['id'] ?>)"
+                        >
+                            ✕
+                        </button>
+
+                    </div>
+
+                </div>
+
+            <?php endforeach; ?>
+
+        <?php else: ?>
+
+            <div class="carrito-vacio">
+                <span>Tu seleccion esta vacia</span>
+            </div>
+
+        <?php endif; ?>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <div class="carrito-footer">
+
+        <div class="linea-total">
+
+            <span>Total</span>
+
+            <span id="total-carrito">
+
+                $<?php
+                    $total = 0;
+
+                    if (!empty($_SESSION['carrito'])) {
+                        foreach ($_SESSION['carrito'] as $item) {
+                            $total += $item['precio'] * $item['cantidad'];
+                        }
+                    }
+
+                    echo number_format($total, 0, ',', '.');
+                ?>
+
+            </span>
+
+        </div>
+
+
+        <button
+            class="btn-comprar"
+            onclick="finalizarCompra()"
+        >
+            Confirmar pedido
+        </button>
+
+    </div>
+
+</aside>

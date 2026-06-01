@@ -1,0 +1,515 @@
+/* ── MODAL LOGIN ────────────────────────────────────────────── */
+
+/* Fondo oscuro (overlay) detrás del modal */
+.login-overlay {
+  position: fixed; /* Se fija en toda la pantalla */
+  inset: 0; /* Ocupa todo (top, right, bottom, left = 0) */
+  background: rgba(26, 26, 26, 0.6); /* Oscurece el fondo */
+  backdrop-filter: blur(4px); /* Efecto blur moderno */
+  z-index: 2000; /* Por encima del contenido */
+  opacity: 0; /* Invisible por defecto */
+  visibility: hidden; /* No interactuable */
+  transition: all var(--trans); /* Animación suave */
+}
+
+/* Estado visible del overlay */
+.login-overlay.visible {
+  opacity: 1; /* Aparece */
+  visibility: visible;
+}
+
+
+/* Contenedor del modal */
+.login-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  /* Centra el modal en pantalla */
+  transform: translate(-50%, -50%) scale(0.95);
+
+  z-index: 2001; /* Encima del overlay */
+  background: var(--blanco); /* Fondo blanco */
+  border-radius: var(--radio-lg); /* Bordes redondeados */
+  width: 90%;
+  max-width: 420px; /* Tamaño máximo */
+  padding: 48px 40px; /* Espaciado interno */
+
+  opacity: 0; /* Oculto */
+  visibility: hidden;
+
+  transition: all var(--trans); /* Animación */
+
+  /* Sombra elegante */
+  box-shadow: 0 24px 64px var(--sombra-fuerte);
+}
+
+/* Estado visible del modal */
+.login-modal.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1); /* Animación zoom */
+}
+
+
+/* Encabezado del modal */
+.login-modal-header {
+  text-align: center; /* Centra contenido */
+  margin-bottom: 36px;
+}
+
+/* Logo dentro del modal */
+.login-modal-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 6px; /* Espaciado elegante */
+  text-transform: uppercase;
+  color: var(--color-texto);
+  margin-bottom: 8px;
+}
+
+/* Subtítulo */
+.login-modal-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  letter-spacing: 0.5px;
+}
+
+
+/* Contenedor de cada campo */
+.login-campo {
+  margin-bottom: 20px;
+}
+
+/* Etiquetas (Correo, Contraseña) */
+.login-campo label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+  margin-bottom: 8px;
+}
+
+/* Inputs */
+.login-campo input {
+  width: 100%; /* Ocupa todo el ancho */
+  padding: 14px 16px;
+  background: var(--fondo-input);
+  border: 1px solid var(--gris-claro);
+  border-radius: var(--radio);
+  color: var(--color-texto);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.95rem;
+  outline: none; /* Quita borde azul del navegador */
+
+  /* Transiciones suaves */
+  transition: border-color var(--trans), box-shadow var(--trans);
+}
+
+/* Placeholder */
+.login-campo input::placeholder { 
+  color: var(--gris-suave); 
+}
+
+/* Cuando el input está enfocado */
+.login-campo input:focus { 
+  border-color: var(--acento); /* Color principal */
+  box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1); /* Glow */
+}
+
+
+/* Botón iniciar sesión */
+.btn-entrar {
+  width: 100%;
+  padding: 14px;
+  background: var(--color-boton);
+  color: #fff;
+  border: none;
+  border-radius: var(--radio);
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  /* Animaciones */
+  transition: background var(--trans), transform var(--trans);
+
+  margin-top: 8px;
+}
+
+/* Hover botón */
+.btn-entrar:hover { 
+  background: var(--color-boton-hover); 
+  transform: translateY(-1px); /* Efecto elevación */
+}
+
+
+/* Mensaje de error */
+.error-login { 
+  font-size: 0.82rem; 
+  color: var(--error); /* Color rojo */
+  text-align: center;
+  margin-top: 16px;
+  display: none; /* Oculto por defecto */
+}
+
+
+/* Botón cerrar (X) */
+.login-cerrar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--gris-suave);
+  cursor: pointer;
+
+  transition: color var(--trans);
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%; /* Circular */
+}
+
+/* Hover botón cerrar */
+.login-cerrar:hover {
+  color: var(--color-texto);
+  background: var(--gris-claro);
+}
+
+
+/* Footer del modal */
+.login-footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+}
+
+/* Link de registro */
+.login-footer a {
+  color: var(--acento);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hover del link */
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* ── PESTAÑAS DE LOGIN/REGISTRO ─────────────────────────────── */
+
+/* Contenedor de pestañas */
+.login-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+/* Botón de pestaña */
+.login-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--trans);
+}
+
+/* Pestaña activa */
+.login-tab.activo {
+  color: var(--acento);
+  border-bottom-color: var(--acento);
+}
+
+/* Hover pestaña */
+.login-tab:hover {
+  color: var(--color-texto);
+}
+
+
+/* ── FORMULARIOS ────────────────────────────────────────────── */
+
+/* Contenedor del formulario */
+.login-formulario {
+  display: none; /* Oculto por defecto */
+}
+
+/* Formulario activo */
+.login-formulario.activo {
+  display: block; /* Visible cuando está activo */
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ── AVISO LOGIN ─────────────────────────────────────────────── */
+
+/* Caja que avisa que debe iniciar sesión */
+.aviso-login {
+  background: var(--blanco);
+  border-left: 3px solid var(--acento); /* Línea decorativa */
+  padding: 14px 20px;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 32px;
+  letter-spacing: 0.3px;
+
+  /* Bordes redondeados solo a la derecha */
+  border-radius: 0 var(--radio) var(--radio) 0;
+
+  /* Sombra suave */
+  box-shadow: 0 2px 8px var(--sombra-suave);
+}
+
+
+/* ── MODAL ALERTA ────────────────────────────────────────────── */
+
+.alerta-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--trans);
+}
+
+.alerta-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.alerta-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  z-index: 3001;
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  width: 90%;
+  max-width: 400px;
+  padding: 40px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+}
+
+.alerta-modal.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.alerta-icon {
+  font-size: 3rem;
+  color: var(--acento);
+  margin-bottom: 20px;
+}
+
+.alerta-modal-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: var(--color-texto);
+}
+
+.alerta-mensaje {
+  font-size: 0.95rem;
+  color: var(--color-texto-suave);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.btn-alerta-ok {
+  width: 100%;
+  padding: 14px;
+  background: var(--negro);
+  color: #fff;
+  border: none;
+  border-radius: var(--radio);
+  font-family: 'Jost', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background var(--trans);
+}
+
+.btn-alerta-ok:hover {
+  background: var(--gris-oscuro);
+}
+
+.alerta-cerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--gris-suave);
+  cursor: pointer;
+  transition: color var(--trans);
+}
+
+.alerta-cerrar:hover {
+  color: var(--color-texto);
+}
+
+
+/* ── MENSAJE NO REGISTRADO ──────────────────────────────────── */
+
+.login-no-registrado {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gris-claro);
+  text-align: center;
+}
+
+.login-no-registrado p {
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+/* Botón registrarse link */
+.btn-registrarse-link {
+  background: none;
+  border: none;
+  color: var(--acento);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color var(--trans), opacity var(--trans);
+  font-family: 'Jost', sans-serif;
+  padding: 0;
+}
+
+.btn-registrarse-link:hover {
+  color: var(--color-boton);
+  opacity: 0.8;
+}
+
+
+/* ── HEADER REGISTRO ────────────────────────────────────────── */
+
+.registro-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+.btn-volver-login {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--color-texto-suave);
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color var(--trans);
+  font-weight: 500;
+}
+
+.btn-volver-login:hover {
+  color: var(--acento);
+}
+
+.registro-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-texto);
+  flex: 1;
+}
+
+
+/* ── MENSAJE REGISTRO EXITOSO ──────────────────────────────── */
+
+.registro-exito {
+  text-align: center;
+  padding: 32px 0;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.exito-icono {
+  font-size: 3.2rem;
+  color: #4CAF50;
+  margin-bottom: 16px;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.registro-exito h2 {
+  font-size: 1.3rem;
+  color: var(--color-texto);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.registro-exito p {
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 28px;
+  letter-spacing: 0.3px;
+}

@@ -1,0 +1,253 @@
+/* ── CARRITO ─────────────────────────────────────────────────── */
+
+/* Fondo oscuro detrás del carrito */
+.overlay {
+  position: fixed; /* Fijo en toda la pantalla */
+  inset: 0; /* Ocupa toda la pantalla */
+  background: rgba(26, 26, 26, 0.4); /* Oscurece el fondo */
+  backdrop-filter: blur(2px); /* Efecto desenfoque */
+  z-index: 199; /* Debajo del carrito */
+  display: none; /* Oculto por defecto */
+}
+
+/* Estado visible del overlay */
+.overlay.visible { 
+  display: block; 
+}
+
+
+/* Panel lateral del carrito */
+.carrito-panel {
+  position: fixed;
+  top: 0; 
+  right: -440px; /* Fuera de pantalla inicialmente */
+
+  width: 420px; 
+  max-width: 95vw; /* Responsive */
+
+  height: 100vh; /* Ocupa toda la altura */
+
+  background: var(--fondo-panel);
+  z-index: 200; /* Encima del overlay */
+
+  display: flex;
+  flex-direction: column; /* Elementos en columna */
+
+  box-shadow: -12px 0 48px var(--sombra-media); /* Sombra lateral */
+
+  transition: right var(--trans-lenta); /* Animación al abrir */
+}
+
+/* Estado abierto (visible) */
+.carrito-panel.abierto { 
+  right: 0; /* Entra desde la derecha */
+}
+
+
+/* Encabezado del carrito */
+.carrito-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Título a la izquierda, botón a la derecha */
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+/* Título */
+.carrito-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-texto);
+}
+
+/* Botón cerrar (X) */
+.btn-cerrar { 
+  background: none; 
+  border: none; 
+  font-size: 1.1rem; 
+  cursor: pointer; 
+  color: var(--gris-suave);
+  padding: 4px;
+}
+
+/* Hover botón cerrar */
+.btn-cerrar:hover { 
+  color: var(--color-texto); 
+}
+
+
+/* Contenedor de los items del carrito */
+.carrito-items { 
+  flex: 1; /* Ocupa todo el espacio disponible */
+  overflow-y: auto; /* Scroll vertical */
+  padding: 20px 28px; 
+}
+
+
+/* Mensaje cuando el carrito está vacío */
+.carrito-vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centrado total */
+  height: 100%;
+  color: var(--color-texto-suave);
+  gap: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+}
+
+
+/* Cada producto dentro del carrito */
+.item-carrito {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+
+/* Miniatura de imagen */
+.item-thumb {
+  width: 60px; 
+  height: 76px;
+  border-radius: var(--radio);
+  overflow: hidden;
+  flex-shrink: 0; /* No se reduce */
+  background: var(--gris-claro);
+}
+
+/* Imagen */
+.item-thumb img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+
+/* Información del producto */
+.item-datos { 
+  flex: 1; 
+}
+
+/* Nombre */
+.item-datos .nombre { 
+  font-size: 0.9rem; 
+  font-weight: 400; 
+  color: var(--color-texto); 
+}
+
+/* Precio */
+.item-datos .precio { 
+  font-size: 0.82rem; 
+  color: var(--color-precio); 
+  margin-top: 4px; 
+}
+
+
+/* Controles de cantidad */
+.item-controles { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+}
+
+
+/* Botones + y - */
+.btn-cant {
+  width: 28px; 
+  height: 28px;
+  border: 1px solid var(--gris-claro);
+  background: transparent;
+  border-radius: var(--radio);
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+
+  transition: all var(--trans);
+
+  color: var(--color-texto);
+}
+
+/* Hover botones cantidad */
+.btn-cant:hover { 
+  background: var(--negro); 
+  color: #fff; 
+  border-color: var(--negro); 
+}
+
+
+/* Número de cantidad */
+.item-cantidad { 
+  font-size: 0.85rem; 
+  min-width: 20px; 
+  text-align: center; 
+  color: var(--color-texto); 
+}
+
+
+/* Botón eliminar producto */
+.btn-eliminar { 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  color: var(--gris-suave); 
+  font-size: 0.85rem; 
+  padding: 4px; 
+}
+
+/* Hover eliminar */
+.btn-eliminar:hover { 
+  color: var(--error); /* Rojo */
+}
+
+
+/* Footer del carrito */
+.carrito-footer {
+  border-top: 1px solid var(--gris-claro);
+  padding: 24px 28px;
+}
+
+
+/* Línea del total */
+.linea-total {
+  display: flex;
+  justify-content: space-between; /* Total a la izquierda y valor a la derecha */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: var(--color-texto);
+}
+
+
+/* Botón confirmar compra */
+.btn-comprar {
+  width: 100%;
+  padding: 16px;
+  background: var(--color-boton);
+  color: #fff;
+  border: none;
+  border-radius: var(--radio);
+
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background var(--trans);
+}
+
+/* Hover botón comprar */
+.btn-comprar:hover { 
+  background: var(--color-boton-hover); 
+}

@@ -1,0 +1,178 @@
+/* ── NAVBAR PRINCIPAL ───────────────────────────────────────── */
+
+/* Contenedor principal de la barra de navegación */
+.navbar {
+  position: sticky; /* Se queda fija al hacer scroll */
+  top: 0; /* Se pega arriba */
+  z-index: 1000; /* Se asegura de estar encima de todo */
+  background: var(--fondo-nav); /* Color de fondo (variable CSS) */
+  display: flex; /* Flexbox para alinear elementos */
+  align-items: center; /* Centra verticalmente */
+  padding: 0 48px; /* Espaciado horizontal */
+  height: 68px; /* Altura fija */
+  gap: 24px; /* Espacio entre elementos */
+}
+
+/* Logo de la marca */
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif; /* Tipografía elegante */
+  font-size: 1.5rem; /* Tamaño */
+  font-weight: 400; /* Grosor */
+  color: #fff; /* Color blanco */
+  letter-spacing: 8px; /* Espaciado entre letras */
+  text-transform: uppercase; /* Todo en mayúsculas */
+  flex-shrink: 0; /* Evita que se reduzca */
+}
+
+/* Contenedor de botones de categorías */
+.nav-categorias {
+  display: flex; /* Alineación horizontal */
+  gap: 6px; /* Espacio entre botones */
+  flex: 1; /* Ocupa el espacio disponible */
+  justify-content: center; /* Centra botones */
+}
+
+/* Botones de categoría */
+.nav-cat {
+  background: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  color: rgba(255,255,255,0.6); /* Blanco con opacidad */
+  padding: 8px 18px; /* Espaciado interno */
+  border-radius: var(--radio); /* Bordes redondeados */
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer; /* Cursor de clic */
+  transition: all var(--trans); /* Animación suave */
+}
+
+/* Hover en categorías */
+.nav-cat:hover { 
+  color: #fff; /* Blanco completo */
+  background: rgba(255,255,255,0.1); /* Fondo suave */
+}
+
+/* Categoría activa */
+.nav-cat.activo { 
+  color: #fff; 
+  background: var(--acento); /* Color principal */
+}
+
+
+/* Botón de iniciar sesión */
+.btn-login-toggle {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
+  padding: 10px 24px;
+  border-radius: var(--radio);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--trans);
+  flex-shrink: 0; /* No se encoge */
+}
+
+/* Hover botón login */
+.btn-login-toggle:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.4);
+}
+
+
+/* ── NAV — USUARIO LOGUEADO ─────────────────────────────────── */
+
+/* Contenedor del usuario cuando inicia sesión */
+.nav-usuario {
+  display: none; /* Oculto por defecto */
+  align-items: center; /* Centrado vertical */
+  gap: 16px; /* Espacio entre elementos */
+}
+
+/* Texto del nombre del usuario */
+.nav-usuario span { 
+  color: #fff; 
+  font-size: 0.85rem; 
+  letter-spacing: 0.5px; 
+}
+
+/* Avatar (círculo con iniciales) */
+.avatar {
+  width: 36px; 
+  height: 36px;
+  background: var(--acento); /* Color principal */
+  color: #fff;
+  border-radius: 50%; /* Forma circular */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra contenido */
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+}
+
+/* Botón cerrar sesión */
+.btn-salir {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.7);
+  padding: 8px 16px;
+  border-radius: var(--radio);
+  cursor: pointer;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all var(--trans);
+}
+
+/* Hover cerrar sesión */
+.btn-salir:hover { 
+  border-color: rgba(255,255,255,0.5); 
+  color: #fff; 
+}
+
+
+/* Botón del carrito */
+.btn-carrito {
+  position: relative; /* Para posicionar el badge */
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
+  padding: 8px 20px;
+  border-radius: var(--radio);
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--trans);
+  margin-left: auto; /* Lo empuja a la derecha */
+}
+
+/* Hover carrito */
+.btn-carrito:hover { 
+  background: var(--acento); 
+  color: #fff; 
+  border-color: var(--acento); 
+}
+
+
+/* Badge (número de productos en carrito) */
+.badge {
+  position: absolute;
+  top: -8px; 
+  right: -8px; /* Esquina superior derecha */
+  background: var(--acento);
+  color: #fff;
+  border-radius: 50%; /* Circular */
+  width: 20px; 
+  height: 20px;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra número */
+  font-weight: 600;
+}

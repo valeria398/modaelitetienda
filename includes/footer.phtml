@@ -1,0 +1,118 @@
+<!-- ===================== FOOTER ===================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-grid">
+
+
+            <!-- EMPRESA -->
+            <div class="footer-col">
+
+                <h3>
+                    <?= htmlspecialchars($nombre_tienda ?? 'Tienda Elite') ?>
+                </h3>
+
+                <p>
+                    <?= htmlspecialchars(
+                        $descripcion_tienda
+                        ?? 'Moda exclusiva y elegante para cada ocasión.'
+                    ) ?>
+                </p>
+
+            </div>
+
+
+            <!-- CONTACTO -->
+            <div class="footer-col">
+
+                <h4>Contacto</h4>
+
+                <p>
+                    <i class="fas fa-phone"></i>
+
+                    <?= htmlspecialchars($telefono ?? '+57 300 123 4567') ?>
+                </p>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+
+                    <?= htmlspecialchars($correo ?? 'contacto@tiendaelite.com') ?>
+                </p>
+
+            </div>
+
+
+            <!-- UBICACION -->
+            <div class="footer-col">
+
+                <h4>Ubicación</h4>
+
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+
+                    <?= htmlspecialchars($ubicacion ?? 'Popayán, Cauca') ?>
+                </p>
+
+            </div>
+
+
+            <!-- REDES -->
+            <div class="footer-col redes">
+
+                <h4>Redes</h4>
+
+                <div class="social-icons">
+
+                    <a
+                        href="<?= htmlspecialchars($facebook ?? '#') ?>"
+                        target="_blank"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a
+                        href="<?= htmlspecialchars($instagram ?? '#') ?>"
+                        target="_blank"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a
+                        href="<?= htmlspecialchars($whatsapp ?? '#') ?>"
+                        target="_blank"
+                    >
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                    <a
+                        href="<?= htmlspecialchars($tiktok ?? '#') ?>"
+                        target="_blank"
+                    >
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+
+            © <?= date('Y') ?>
+
+            <span>
+                <?= htmlspecialchars($nombre_tienda ?? 'Tienda Elite') ?>
+            </span>
+
+            - Todos los derechos reservados
+
+        </div>
+
+    </div>
+
+</footer>

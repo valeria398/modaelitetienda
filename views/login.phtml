@@ -1,0 +1,197 @@
+<!-- ===================== MODAL LOGIN / REGISTRO ===================== -->
+
+<div 
+    class="login-overlay"
+    id="login-overlay"
+    onclick="cerrarLogin()"
+></div>
+
+<div class="login-modal" id="login-modal">
+
+    <!-- BOTON CERRAR -->
+    <button
+        class="login-cerrar"
+        onclick="cerrarLogin()"
+    >
+        &#10005;
+    </button>
+
+
+    <!-- HEADER -->
+    <div class="login-modal-header">
+
+        <div class="login-modal-logo">
+            <?= htmlspecialchars($logo ?? 'Elite') ?>
+        </div>
+
+    </div>
+
+
+    <!-- ====== FORMULARIO LOGIN ====== -->
+    <div id="formulario-login" class="login-formulario activo">
+
+        <form onsubmit="intentarLoginPHP(event)">
+
+            <!-- EMAIL -->
+            <div class="login-campo">
+                <label for="campo-email">
+                    Correo electronico
+                </label>
+                <input
+                    type="email"
+                    name="email"
+                    id="campo-email"
+                    placeholder="correo@ejemplo.com"
+                    required
+                >
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="login-campo">
+                <label for="campo-password">
+                    Contraseña
+                </label>
+                <input
+                    type="password"
+                    name="password"
+                    id="campo-password"
+                    placeholder="Tu contraseña"
+                    required
+                >
+            </div>
+
+            <!-- BOTON -->
+            <button type="submit" class="btn-entrar">
+                Iniciar Sesión
+            </button>
+
+            <!-- ERROR -->
+            <span class="error-login" id="login-error" style="display: none;"></span>
+
+        </form>
+
+        <!-- PHP ERROR -->
+        <?php if (!empty($error_login)): ?>
+            <span class="error-login">
+                <?= htmlspecialchars($error_login) ?>
+            </span>
+        <?php endif; ?>
+
+        <!-- MENSAJE NO REGISTRADO -->
+        <div class="login-no-registrado">
+            <p>¿No estás registrado?</p>
+            <button 
+                type="button"
+                class="btn-registrarse-link"
+                onclick="mostrarRegistro()"
+            >
+                Regístrate aquí
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- ====== MENSAJE REGISTRO EXITOSO ====== -->
+    <div id="mensaje-registro-exitoso" class="login-formulario" style="display: none;">
+        <div class="registro-exito">
+            <div class="exito-icono">✓</div>
+            <h2>¡Registrado exitosamente!</h2>
+            <p>Tu cuenta ha sido creada. Ahora inicia sesión con tus credenciales.</p>
+            <button 
+                type="button"
+                class="btn-entrar"
+                onclick="volverAlLogin()"
+            >
+                Ir al inicio de sesión
+            </button>
+        </div>
+    </div>
+
+    <!-- ====== FORMULARIO REGISTRO ====== -->
+    <div id="formulario-registro" class="login-formulario" style="display: none;">
+
+        <div class="registro-header">
+            <button 
+                type="button"
+                class="btn-volver-login"
+                onclick="volverAlLogin()"
+                title="Volver al login"
+            >
+                ← Volver
+            </button>
+            <h3>Crear cuenta</h3>
+        </div>
+
+        <form onsubmit="intentarRegistro(event)">
+
+            <!-- NOMBRE -->
+            <div class="login-campo">
+                <label for="campo-nombre">
+                    Nombre completo
+                </label>
+                <input
+                    type="text"
+                    name="nombre"
+                    id="campo-nombre"
+                    placeholder="Tu nombre completo"
+                    required
+                >
+            </div>
+
+            <!-- EMAIL -->
+            <div class="login-campo">
+                <label for="campo-email-registro">
+                    Correo electronico
+                </label>
+                <input
+                    type="email"
+                    name="email"
+                    id="campo-email-registro"
+                    placeholder="correo@ejemplo.com"
+                    required
+                >
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="login-campo">
+                <label for="campo-password-registro">
+                    Contraseña
+                </label>
+                <input
+                    type="password"
+                    name="password"
+                    id="campo-password-registro"
+                    placeholder="Tu contraseña"
+                    required
+                    minlength="6"
+                >
+            </div>
+
+            <!-- CONFIRMAR PASSWORD -->
+            <div class="login-campo">
+                <label for="campo-password-confirmar">
+                    Confirmar contraseña
+                </label>
+                <input
+                    type="password"
+                    id="campo-password-confirmar"
+                    placeholder="Confirma tu contraseña"
+                    required
+                    minlength="6"
+                >
+            </div>
+
+            <!-- BOTON -->
+            <button type="submit" class="btn-entrar">
+                Registrarse
+            </button>
+
+            <!-- ERROR -->
+            <span class="error-login" id="registro-error" style="display: none;"></span>
+
+        </form>
+
+    </div>
+
+</div>

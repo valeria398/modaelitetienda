@@ -1,0 +1,63 @@
+<!-- ===================== HERO ===================== -->
+
+<!-- AUDIO (created dynamically by audio.js) -->
+
+<!-- HERO -->
+<section class="hero hero-video">
+
+    <!-- VIDEO -->
+    <video
+        class="hero-video-bg"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+
+        <source
+            src="<?= htmlspecialchars($video_hero ?? 'assets/videos/6121231-uhd_4096_2160_25fps.mp4') ?>"
+            type="video/mp4"
+        >
+
+    </video>
+
+
+    <!-- OVERLAY -->
+    <div class="hero-overlay"></div>
+
+
+    <!-- CONTENIDO -->
+    <div class="hero-content">
+
+        <h1>
+            <?= nl2br(htmlspecialchars(
+                $titulo_hero
+                ?? "REDEFINIENDO\nLA ELEGANCIA"
+            )) ?>
+        </h1>
+
+        <p>
+            <?= htmlspecialchars(
+                $descripcion_hero
+                ?? 'Experimenta el pináculo de la moda de lujo, calzado y accesorios.'
+            ) ?>
+        </p>
+
+        <button
+            class="btn-hero"
+            onclick="irAProductos()"
+        >
+            <?= htmlspecialchars($texto_boton_hero ?? 'DESCUBRE LA COLECCIÓN') ?>
+        </button>
+
+    </div>
+
+
+    <!-- BOTON MUSICA -->
+    <button id="music-toggle-btn">
+
+        <?= htmlspecialchars($texto_boton_musica ?? '▶ Música') ?>
+
+    </button>
+
+</section>

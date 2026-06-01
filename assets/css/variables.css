@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&display=swap');
+
+:root {
+
+  /* ── Paleta principal: Neutros elegantes ─────────────────── */
+  --negro:            #1A1A1A;   /* navbar, textos principales  */
+  --gris-oscuro:      #3D3D3D;   /* textos secundarios fuertes  */
+  --gris-medio:       #6B6B6B;   /* botones activos, acentos    */
+  --gris-suave:       #9A9A9A;   /* bordes suaves, detalles     */
+  --gris-claro:       #E5E5E5;   /* fondos suaves               */
+  --crema:            #F5F5F3;   /* fondo general               */
+  --blanco:           #FAFAFA;   /* blanco, tarjetas            */
+
+  /* ── Acento ──────────────────────────────────────────────── */
+  --acento:           #8B7355;   /* hover, precios, énfasis (marrón cálido) */
+  --acento-claro:     #A68B6A;   /* hover suave                 */
+  --acento-oscuro:    #6B5A45;   /* hover intenso               */
+
+  /* ── Semánticos ──────────────────────────────────────────── */
+  --fondo-nav:        var(--negro);
+  --fondo-hero:       var(--crema);
+  --fondo-body:       var(--crema);
+  --fondo-tarjeta:    var(--blanco);
+  --fondo-panel:      var(--blanco);
+  --fondo-input:      var(--blanco);
+  --color-texto:      var(--negro);
+  --color-texto-suave:var(--gris-medio);
+  --color-precio:     var(--acento);
+  --color-boton:      var(--negro);
+  --color-boton-hover:var(--gris-oscuro);
+  --sombra-suave:     rgba(0, 0, 0, 0.06);
+  --sombra-media:     rgba(0, 0, 0, 0.12);
+  --sombra-fuerte:    rgba(0, 0, 0, 0.18);
+
+  /* ── UI ──────────────────────────────────────────────────── */
+  --trans:            0.3s ease;
+  --trans-lenta:      0.4s ease;
+  --radio:            6px;
+  --radio-lg:         12px;
+
+  /* ── Estados ─────────────────────────────────────────────── */
+  --error:            #C45C5C;
+  --exito:            #5C8A5C;
+}

@@ -1,0 +1,81 @@
+<!-- ===================== TEMPLATES ===================== -->
+
+<!-- Plantilla de producto -->
+<template id="tpl-tarjeta">
+    <div class="tarjeta">
+        <div class="tarjeta-imagen">
+            <span class="etiqueta-nuevo">Nuevo</span>
+
+            <img 
+                src="" 
+                alt="" 
+                loading="lazy"
+            >
+
+            <button class="btn-ver-detalles">
+                Ver Detalles
+            </button>
+        </div>
+
+        <div class="tarjeta-info">
+            <div class="tarjeta-cat"></div>
+
+            <div class="tarjeta-nombre"></div>
+
+            <div class="tarjeta-precio"></div>
+
+            <button class="btn-agregar">
+                Agregar al carrito
+            </button>
+        </div>
+    </div>
+</template>
+
+
+<!-- Sin resultados -->
+<template id="tpl-sin-resultados">
+    <div class="sin-resultados">
+        No se encontraron piezas
+    </div>
+</template>
+
+
+<!-- Item carrito -->
+<template id="tpl-item-carrito">
+    <div class="item-carrito">
+
+        <div class="item-thumb">
+            <img 
+                src="" 
+                alt=""
+            >
+        </div>
+
+        <div class="item-datos">
+            <div class="nombre"></div>
+
+            <div class="precio"></div>
+        </div>
+
+        <div class="item-controles">
+            <button class="btn-cant btn-quitar">−</button>
+
+            <span class="item-cantidad">1</span>
+
+            <button class="btn-cant btn-sumar">+</button>
+
+            <button class="btn-eliminar">
+                ✕
+            </button>
+        </div>
+
+    </div>
+</template>
+
+
+<!-- Carrito vacío -->
+<template id="tpl-carrito-vacio">
+    <div class="carrito-vacio">
+        <span>Tu seleccion esta vacia</span>
+    </div>
+</template>
