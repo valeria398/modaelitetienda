@@ -8,7 +8,13 @@ $conexion = null;
 $error_login = null;
 
 try {
-    $conexion = new mysqli('localhost', 'root', '', 'tienda_elite');
+    $conexion = new mysqli(
+    getenv('MYSQLHOST'),
+    getenv('MYSQLUSER'),
+    getenv('MYSQLPASSWORD'),
+    getenv('MYSQLDATABASE'),
+    (int)getenv('MYSQLPORT')
+);
     
     if ($conexion->connect_error) {
         throw new Exception('Error de conexión: ' . $conexion->connect_error);
